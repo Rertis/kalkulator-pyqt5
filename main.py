@@ -49,13 +49,14 @@ class Ui_MainWindow(object):
         if not self.isnum1set and "".join(self.liczba) == "58008":
             self.random.show()
         else:
-            self.num2 = float("".join(self.liczba))
-            if self.oper == "+":
-                self.num1 = self.num1 + self.num2
-                self.display.setText(str(self.num1))
-            elif self.oper == "-":
-                self.num1 = self.num1 - self.num2
-                self.display.setText(str(self.num1))
+            if "".join(self.liczba) != "":
+                self.num2 = float("".join(self.liczba))
+                if self.oper == "+":
+                    self.num1 = self.num1 + self.num2
+                    self.display.setText(str(self.num1))
+                elif self.oper == "-":
+                    self.num1 = self.num1 - self.num2
+                    self.display.setText(str(self.num1))
 
     def setupUi(self, MainWindow):
         # ------------------window settings------------------
