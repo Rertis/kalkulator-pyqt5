@@ -14,11 +14,11 @@ import webbrowser
 
 class Ui_MainWindow(object):
     def __init__(self) -> None:
-        self.liczba = []
-        self.num1 = 0
-        self.num2 = 0
-        self.oper = ""
-        self.isnum1set = False
+        self.liczba = list()
+        self.num1 = float(0)
+        self.num2 = float(0)
+        self.oper = str("")
+        self.isnum1set = bool(True)
 
     def addnum(self, num):
         self.liczba.append(str(num))
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         else:
             webbrowser.open("http://nhentai.net/")
 
-    def operator(self, op: str):
+    def operator(self, op):
         self.num1 = float("".join(self.liczba))
         self.isnum1set = True
         self.liczba = []
