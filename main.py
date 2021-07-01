@@ -39,9 +39,10 @@ class Ui_MainWindow(object):
             webbrowser.open("http://nhentai.net/")
 
     def operator(self, op):
-        self.num1 = float("".join(self.liczba))
-        self.isnum1set = True
-        self.liczba = []
+        if "".join(self.liczba) != "":
+            self.num1 = float("".join(self.liczba))
+            self.isnum1set = True
+            self.liczba = []
         self.operator = op
 
     def calculate(self):
