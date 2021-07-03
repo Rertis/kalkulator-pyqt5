@@ -13,12 +13,11 @@ import webbrowser
 
 
 class Ui_MainWindow(object):
-    def __init__(self) -> None:
-        self.liczba = list()
-        self.num1 = float(0)
-        self.num2 = float(0)
-        self.oper = str("")
-        self.isnum1set = bool(True)
+    liczba = list()
+    num1 = float(0)
+    num2 = float(0)
+    oper = str("")
+    isnum1set = bool(True)
 
     def addnum(self, num):
         self.liczba.append(str(num))
@@ -43,7 +42,7 @@ class Ui_MainWindow(object):
             self.num1 = float("".join(self.liczba))
             self.isnum1set = True
             self.liczba = []
-        self.operator = op
+        self.oper = op
 
     def calculate(self):
         if not self.isnum1set and "".join(self.liczba) == "58008":
