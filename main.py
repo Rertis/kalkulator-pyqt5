@@ -49,6 +49,7 @@ class Ui_MainWindow(object):
             self.random.show()
         else:
             if "".join(self.liczba) != "":
+                # bierze druga cyfra zamiast dispaly
                 self.num2 = float("".join(self.liczba))
                 if self.oper == "+":
                     self.num1 = self.num1 + self.num2
