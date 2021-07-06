@@ -27,11 +27,10 @@ class Ui_MainWindow(object):
         self.liczba = []
         self.num1 = 0
         self.num2 = 0
-        self.isnum1set = False
         self.display.setText("")
 
     def nhentai(self):
-        hentaiid = "".join(self.liczba)
+        hentaiid = int(float("".join(self.liczba)))
         if hentaiid != "":
             webbrowser.open(f"http://nhentai.net/g/{hentaiid}/")
         else:
@@ -40,23 +39,26 @@ class Ui_MainWindow(object):
     def operator(self, op):
         if "".join(self.liczba) != "":
             self.num1 = float("".join(self.liczba))
-            self.isnum1set = True
             self.liczba = []
         self.oper = op
 
     def calculate(self):
-        if not self.isnum1set and "".join(self.liczba) == "58008":
+        if not self.num1 and "".join(self.liczba) == "58008":
             self.random.show()
         else:
             if "".join(self.liczba) != "":
-                # bierze druga cyfra zamiast dispaly
                 self.num2 = float("".join(self.liczba))
                 if self.oper == "+":
                     self.num1 = self.num1 + self.num2
-                    self.display.setText(str(self.num1))
                 elif self.oper == "-":
                     self.num1 = self.num1 - self.num2
-                    self.display.setText(str(self.num1))
+                elif self.oper == "*":
+                    self.num1 = self.num1 * self.num2
+                    # cos sie jebie z mnozeniem
+                elif self.oper == "/":
+                    self.num1 = self.num1 / self.num2
+                self.display.setText(str(self.num1))
+                self.liczba = [x for x in str(self.num1)]
 
     def setupUi(self, MainWindow):
         # ------------------window settings------------------
