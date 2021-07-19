@@ -47,7 +47,14 @@ class Ui_MainWindow(object):
             self.random.show()
         else:
             if "".join(self.liczba) != "":
-                self.num2 = float("".join(self.liczba))
+                # w przypadku wykonywania działania gdzie liczba1 i liczba2 są takie same
+                # liczba 2 (domyślnie 0) nie zostanie zastąpiona;
+                # tymczasowy fix kilkukrotnego używania przycisku rowna sie
+                if self.num1 != float("".join(self.liczba)):
+                    self.num2 = float("".join(self.liczba))
+                else:
+                    self.num2 = self.num1
+                # -----------------------------------------------------------------------
                 if self.oper == "+":
                     self.num1 = self.num1 + self.num2
                 elif self.oper == "-":
